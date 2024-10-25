@@ -1,2 +1,2 @@
-# NLToSPARQL
-A Framework for Complex Natural Language to SPARQL Translation Using Large Pre-trained Language Models and Policy-Based Reinforcement Learning
+# NLToCypher
+A Framework for Complex Natural Language to Cypher Translation Using Large Fine Tuned LLM and Reinforcement Learning
