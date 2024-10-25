@@ -1,0 +1,3762 @@
+[
+    {
+        "Question": "How many articles are there in the graph?",
+        "Cypher": "MATCH (n:Article) RETURN count(n)"
+    },
+    {
+        "Question": "Which article provides the code named 'FAIRDS-SDs'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'FAIRDS-SDs'}) RETURN a"
+    },
+    {
+        "Question": "List all datasets used by articles.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset) RETURN d"
+    },
+    {
+        "Question": "Find all articles that cite 'Deep Transfer Learning for Metadata Extraction from German Publications'.",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'Deep Transfer Learning for Metadata Extraction from German Publications'}) RETURN a"
+    },
+    {
+        "Question": "Which articles provide software applications?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication) RETURN a"
+    },
+    {
+        "Question": "How many datasets are there in the graph?",
+        "Cypher": "MATCH (n:Dataset) RETURN count(n)"
+    },
+    {
+        "Question": "What is the URL of the article named 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'?",
+        "Cypher": "MATCH (a:Article {name: 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'}) RETURN a.url"
+    },
+    {
+        "Question": "List all articles that use the 'IMDB Movie Dataset Till Dec-2023'.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'IMDB Movie Dataset Till Dec-2023'}) RETURN a"
+    },
+    {
+        "Question": "Which code is provided by the article titled 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'?",
+        "Cypher": "MATCH (a:Article {name: 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'})-[:provides]->(c:Code) RETURN c"
+    },
+    {
+        "Question": "Find all software applications mentioned in the articles.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication) RETURN s"
+    },
+    {
+        "Question": "How many articles cite other articles?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article) RETURN count(a)"
+    },
+    {
+        "Question": "What datasets does the article 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References' use?",
+        "Cypher": "MATCH (a:Article {name: 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'})-[:uses]->(d:Dataset) RETURN d"
+    },
+    {
+        "Question": "Which article provides the software application 'FDO Playground'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Playground'}) RETURN a"
+    },
+    {
+        "Question": "Find articles that cite the article 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'.",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'}) RETURN a"
+    },
+    {
+        "Question": "List all articles that use the dataset 'Social Media Sentiments Analysis Dataset'.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Social Media Sentiments Analysis Dataset'}) RETURN a"
+    },
+    {
+        "Question": "How many codes are provided by articles?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code) RETURN count(c)"
+    },
+    {
+        "Question": "Which articles cite the article 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'}) RETURN a"
+    },
+    {
+        "Question": "What is the name of the software application provided by 'FDO Manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Manager'}) RETURN a.name"
+    },
+    {
+        "Question": "Find all articles that use the 'LLM: Mistral-7B Instruct texts' dataset.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN a"
+    },
+    {
+        "Question": "What is the URL of the dataset 'Fake News Detection'?",
+        "Cypher": "MATCH (d:Dataset {name: 'Fake News Detection'}) RETURN d.url"
+    },
+    {
+        "Question": "How many articles provide the code 'fdo-manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN count(a)"
+    },
+    {
+        "Question": "List all articles that use datasets.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset) RETURN a"
+    },
+    {
+        "Question": "Which code is used by the article 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'?",
+        "Cypher": "MATCH (a:Article {name: 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'})-[:provides]->(c:Code) RETURN c"
+    },
+    {
+        "Question": "Find all datasets mentioned in the articles.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset) RETURN d"
+    },
+    {
+        "Question": "How many software applications are provided by articles?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication) RETURN count(s)"
+    },
+    {
+        "Question": "Which articles are cited by 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'}) RETURN b"
+    },
+    {
+        "Question": "What is the metadata URL for the article 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'?",
+        "Cypher": "MATCH (a:Article {name: 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'}) RETURN a.metadata_url"
+    },
+    {
+        "Question": "Find articles that use 'FAIRDS-SDs' code.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'FAIRDS-SDs'}) RETURN a"
+    },
+    {
+        "Question": "How many articles provide the 'Technology Radar' software application?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Technology Radar'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which article uses the dataset named 'PII | External Dataset'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'PII | External Dataset'}) RETURN a"
+    },
+    {
+        "Question": "List all codes provided by articles.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code) RETURN c"
+    },
+    {
+        "Question": "Find articles that provide both code and software applications.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code), (a)-[:provides]->(s:SoftwareApplication) RETURN a"
+    },
+    {
+        "Question": "How many articles use datasets named 'LLM: Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN count(a)"
+    },
+    {
+        "Question": "What is the name of the article that uses 'fdom-playground' code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdom-playground'}) RETURN a.name"
+    },
+    {
+        "Question": "Which articles provide the code 'fdom-playground'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdom-playground'}) RETURN a"
+    },
+    {
+        "Question": "List all articles that cite 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'.",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'}) RETURN a"
+    },
+    {
+        "Question": "How many datasets are used by articles?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset) RETURN count(d)"
+    },
+    {
+        "Question": "What articles provide the software application 'FDO Manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Manager'}) RETURN a"
+    },
+    {
+        "Question": "Which datasets are used by 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'?",
+        "Cypher": "MATCH (a:Article {name: 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'})-[:uses]->(d:Dataset) RETURN d"
+    },
+    {
+        "Question": "Find articles that provide the code 'fdo-manager'.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN a"
+    },
+    {
+        "Question": "What is the URL for the code 'fc-service'?",
+        "Cypher": "MATCH (c:Code {name: 'fc-service'}) RETURN c.url"
+    },
+    {
+        "Question": "Which articles cite other articles more than once?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article) RETURN a, count(b) WHERE count(b) > 1"
+    },
+    {
+        "Question": "How many articles provide at least one software application?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication) RETURN count(distinct a)"
+    },
+    {
+        "Question": "Which datasets are used by articles that provide 'FAIRDS-SDs' code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'FAIRDS-SDs'})-[:uses]->(d:Dataset) RETURN d"
+    },
+    {
+        "Question": "What is the creative work type of the article 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'?",
+        "Cypher": "MATCH (a:Article {name: 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'}) RETURN a.creativeWorkType"
+    },
+    {
+        "Question": "List all articles that use the dataset 'LLM: Mistral-7B Instruct texts'.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN a"
+    },
+    {
+        "Question": "How many articles cite 'Fake News Detection' dataset?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which software applications are provided by articles that use the dataset 'IMDB Movie Dataset Till Dec-2023'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'IMDB Movie Dataset Till Dec-2023'})-[:provides]->(s:SoftwareApplication) RETURN s"
+    },
+    {
+        "Question": "Find articles that are cited by 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'.",
+        "Cypher": "MATCH (a:Article)<-[:cites]-(b:Article {name: 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'}) RETURN a"
+    },
+    {
+        "Question": "How many software applications are associated with the articles?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication) RETURN count(s)"
+    },
+    {
+        "Question": "List all articles that cite 'Deep Transfer Learning for Metadata Extraction from German Publications'.",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'Deep Transfer Learning for Metadata Extraction from German Publications'}) RETURN a"
+    },
+    {
+        "Question": "Which articles provide both code and datasets?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code), (a)-[:uses]->(d:Dataset) RETURN a"
+    },
+    {
+        "Question": "What is the name of the article that cites 'Technology Radar' software application?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Technology Radar'}) RETURN a.name"
+    },
+    {
+        "Question": "How many articles are there that use the 'Social Media Sentiments Analysis Dataset'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Social Media Sentiments Analysis Dataset'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which article uses the dataset named 'PII | External Dataset'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'PII | External Dataset'}) RETURN a"
+    },
+    {
+        "Question": "What is the URL of the software application 'FDO Playground'?",
+        "Cypher": "MATCH (s:SoftwareApplication {name: 'FDO Playground'}) RETURN s.url"
+    },
+    {
+        "Question": "List all datasets that have been used in articles.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset) RETURN d"
+    },
+    {
+        "Question": "How many articles cite the article 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles provide 'fdo-manager' code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN a"
+    },
+    {
+        "Question": "How many articles mention the 'Author Name Disambiguation' software application?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Author Name Disambiguation'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles use the dataset 'Fake News Detection'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}) RETURN a"
+    },
+    {
+        "Question": "What is the metadata URL for 'Social Media Sentiments Analysis Dataset'?",
+        "Cypher": "MATCH (d:Dataset {name: 'Social Media Sentiments Analysis Dataset'}) RETURN d.metadata_url"
+    },
+    {
+        "Question": "Find articles that use both the dataset and provide software applications.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset), (a)-[:provides]->(s:SoftwareApplication) RETURN a"
+    },
+    {
+        "Question": "How many articles use 'fdom-playground' code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdom-playground'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles are associated with the dataset 'LLM: Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN a"
+    },
+    {
+        "Question": "What articles provide software applications that use 'Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication)-[:uses]->(d:Dataset {name: 'Mistral-7B Instruct texts'}) RETURN a"
+    },
+    {
+        "Question": "Which articles use the dataset 'IMDB Movie Dataset Till Dec-2023'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'IMDB Movie Dataset Till Dec-2023'}) RETURN a"
+    },
+    {
+        "Question": "How many articles are there that provide the software application 'FDO Manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Manager'}) RETURN count(a)"
+    },
+    {
+        "Question": "What is the URL of the article 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'?",
+        "Cypher": "MATCH (a:Article {name: 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'}) RETURN a.url"
+    },
+    {
+        "Question": "Find all articles that use the 'PII | External Dataset'.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'PII | External Dataset'}) RETURN a"
+    },
+    {
+        "Question": "Which articles provide the code 'FAIRDS-SDs'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'FAIRDS-SDs'}) RETURN a"
+    },
+    {
+        "Question": "How many articles are cited by 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'}) RETURN count(b)"
+    },
+    {
+        "Question": "What is the name of the dataset used by 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'?",
+        "Cypher": "MATCH (a:Article {name: 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'})-[:uses]->(d:Dataset) RETURN d.name"
+    },
+    {
+        "Question": "List all articles that provide the software application 'Technology Radar'.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Technology Radar'}) RETURN a"
+    },
+    {
+        "Question": "Which articles use the 'Fake News Detection' dataset?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}) RETURN a"
+    },
+    {
+        "Question": "How many articles provide at least one code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code) RETURN count(distinct a)"
+    },
+    {
+        "Question": "What articles cite the article 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'}) RETURN a"
+    },
+    {
+        "Question": "Find articles that use both 'Mistral-7B Instruct texts' and 'Social Media Sentiments Analysis Dataset'.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d1:Dataset {name: 'Mistral-7B Instruct texts'}), (a)-[:uses]->(d2:Dataset {name: 'Social Media Sentiments Analysis Dataset'}) RETURN a"
+    },
+    {
+        "Question": "Which articles mention the 'FDO Playground' software application?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Playground'}) RETURN a"
+    },
+    {
+        "Question": "How many codes are provided by articles that cite 'Deep Transfer Learning for Metadata Extraction from German Publications'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'Deep Transfer Learning for Metadata Extraction from German Publications'})-[:provides]->(c:Code) RETURN count(c)"
+    },
+    {
+        "Question": "List all articles that provide 'fdom-playground' code.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdom-playground'}) RETURN a"
+    },
+    {
+        "Question": "What is the metadata URL for 'LLM: Mistral-7B Instruct texts' dataset?",
+        "Cypher": "MATCH (d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN d.metadata_url"
+    },
+    {
+        "Question": "Which articles use 'Fake News Detection' dataset and provide software applications?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}), (a)-[:provides]->(s:SoftwareApplication) RETURN a"
+    },
+    {
+        "Question": "How many articles provide the software application 'FDO Playground'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Playground'}) RETURN count(a)"
+    },
+    {
+        "Question": "Find articles that cite 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'.",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'}) RETURN a"
+    },
+    {
+        "Question": "Which articles use the dataset 'Social Media Sentiments Analysis Dataset'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Social Media Sentiments Analysis Dataset'}) RETURN a"
+    },
+    {
+        "Question": "What articles cite the article 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'}) RETURN a"
+    },
+    {
+        "Question": "How many datasets are provided by articles that use 'LLM: Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN count(d)"
+    },
+    {
+        "Question": "Which articles provide the code 'fdo-manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN a"
+    },
+    {
+        "Question": "List all software applications provided by articles that cite 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'.",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'})-[:provides]->(s:SoftwareApplication) RETURN s"
+    },
+    {
+        "Question": "What is the name of the dataset used by 'Technology Radar' software application?",
+        "Cypher": "MATCH (s:SoftwareApplication {name: 'Technology Radar'})<-[:provides]-(a:Article)-[:uses]->(d:Dataset) RETURN d.name"
+    },
+    {
+        "Question": "How many articles provide both 'fdo-manager' and 'FDO Playground' software applications?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s1:SoftwareApplication {name: 'fdo-manager'}), (a)-[:provides]->(s2:SoftwareApplication {name: 'FDO Playground'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles mention the 'Mistral-7B Instruct texts' dataset?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN a"
+    },
+    {
+        "Question": "What is the creative work type of 'Fake News Detection' dataset?",
+        "Cypher": "MATCH (d:Dataset {name: 'Fake News Detection'}) RETURN d.creativeWorkType"
+    },
+    {
+        "Question": "Which articles use the dataset 'Social Media Sentiments Analysis Dataset' and provide software applications?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Social Media Sentiments Analysis Dataset'}), (a)-[:provides]->(s:SoftwareApplication) RETURN a"
+    },
+    {
+        "Question": "How many articles cite the dataset 'Fake News Detection'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}) RETURN count(a)"
+    },
+    {
+        "Question": "What are the articles that provide the code 'fdo-manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN a"
+    },
+    {
+        "Question": "Find articles that use the dataset 'IMDB Movie Dataset Till Dec-2023' and provide 'FAIRDS-SDs' code.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'IMDB Movie Dataset Till Dec-2023'}), (a)-[:provides]->(c:Code {name: 'FAIRDS-SDs'}) RETURN a"
+    },
+    {
+        "Question": "What is the URL for the article 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'?",
+        "Cypher": "MATCH (a:Article {name: 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'}) RETURN a.url"
+    },
+    {
+        "Question": "How many articles mention the software application 'Author Name Disambiguation'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Author Name Disambiguation'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles provide 'fdo-manager' and cite 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}), (a)-[:cites]->(b:Article {name: 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'}) RETURN a"
+    },
+    {
+        "Question": "What articles are associated with the dataset 'LLM: Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN a"
+    },
+    {
+        "Question": "Which articles cite the dataset 'Social Media Sentiments Analysis Dataset'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Social Media Sentiments Analysis Dataset'})<-[:cites]-(b:Article) RETURN b"
+    },
+    {
+        "Question": "How many articles provide software applications?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication) RETURN count(distinct a)"
+    },
+    {
+        "Question": "What is the URL for the dataset 'LLM: Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN d.url"
+    },
+    {
+        "Question": "List all articles that provide 'Technology Radar' software application.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Technology Radar'}) RETURN a"
+    },
+    {
+        "Question": "Which articles use the code 'fdo-manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN a"
+    },
+    {
+        "Question": "Find all articles that cite 'FAIRDS-SDs' code.",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Code {name: 'FAIRDS-SDs'}) RETURN a"
+    },
+    {
+        "Question": "How many articles use the dataset 'IMDB Movie Dataset Till Dec-2023'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'IMDB Movie Dataset Till Dec-2023'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles are associated with 'fdom-playground' code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdom-playground'}) RETURN a"
+    },
+    {
+        "Question": "What is the creative work type for 'Fake News Detection' dataset?",
+        "Cypher": "MATCH (d:Dataset {name: 'Fake News Detection'}) RETURN d.creativeWorkType"
+    },
+    {
+        "Question": "Which articles cite 'Deep Transfer Learning for Metadata Extraction from German Publications'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'Deep Transfer Learning for Metadata Extraction from German Publications'}) RETURN a"
+    },
+    {
+        "Question": "List all articles that provide 'FDO Playground'.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Playground'}) RETURN a"
+    },
+    {
+        "Question": "How many datasets are used in articles that provide 'Author Name Disambiguation'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Author Name Disambiguation'})-[:uses]->(d:Dataset) RETURN count(d)"
+    },
+    {
+        "Question": "What articles are associated with the code 'fc-service'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fc-service'}) RETURN a"
+    },
+    {
+        "Question": "How many articles cite other articles?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article) RETURN count(distinct a)"
+    },
+    {
+        "Question": "Which articles use both 'Social Media Sentiments Analysis Dataset' and 'PII | External Dataset'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d1:Dataset {name: 'Social Media Sentiments Analysis Dataset'}), (a)-[:uses]->(d2:Dataset {name: 'PII | External Dataset'}) RETURN a"
+    },
+    {
+        "Question": "What is the name of the software application associated with 'fdom-playground' code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdom-playground'})-[:provides]->(s:SoftwareApplication) RETURN s.name"
+    },
+    {
+        "Question": "How many articles provide the dataset 'Fake News Detection'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}) RETURN count(a)"
+    },
+    {
+        "Question": "List articles that cite the article 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'.",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'}) RETURN a"
+    },
+    {
+        "Question": "Which articles provide both the dataset and code?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset), (a)-[:provides]->(c:Code) RETURN a"
+    },
+    {
+        "Question": "How many articles mention the software application 'FDO Manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Manager'}) RETURN count(a)"
+    },
+    {
+        "Question": "What is the URL of the dataset 'Social Media Sentiments Analysis Dataset'?",
+        "Cypher": "MATCH (d:Dataset {name: 'Social Media Sentiments Analysis Dataset'}) RETURN d.url"
+    },
+    {
+        "Question": "Find articles that cite 'Author Name Disambiguation' software application.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Author Name Disambiguation'})<-[:cites]-(b:Article) RETURN b"
+    },
+    {
+        "Question": "Which articles use the dataset 'LLM: Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN a"
+    },
+    {
+        "Question": "How many articles provide the code 'FAIRDS-SDs'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'FAIRDS-SDs'}) RETURN count(a)"
+    },
+    {
+        "Question": "What articles cite the dataset 'Fake News Detection'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'})<-[:cites]-(b:Article) RETURN b"
+    },
+    {
+        "Question": "Which articles mention 'fdo-manager' code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN a"
+    },
+    {
+        "Question": "What is the metadata URL for 'PII | External Dataset'?",
+        "Cypher": "MATCH (d:Dataset {name: 'PII | External Dataset'}) RETURN d.metadata_url"
+    },
+    {
+        "Question": "How many articles provide the software application 'FDO Playground'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Playground'}) RETURN count(a)"
+    },
+    {
+        "Question": "Find all articles that use 'IMDB Movie Dataset Till Dec-2023'.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'IMDB Movie Dataset Till Dec-2023'}) RETURN a"
+    },
+    {
+        "Question": "Which articles provide the software application 'FDO Manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Manager'}) RETURN a"
+    },
+    {
+        "Question": "How many articles are cited by 'Technology Radar'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:SoftwareApplication {name: 'Technology Radar'}) RETURN count(b)"
+    },
+    {
+        "Question": "What are the articles associated with the dataset 'Fake News Detection'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}) RETURN a"
+    },
+    {
+        "Question": "Which articles cite the software application 'FDO Playground'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(s:SoftwareApplication {name: 'FDO Playground'}) RETURN a"
+    },
+    {
+        "Question": "List articles that use 'Deep Transfer Learning for Metadata Extraction from German Publications'.",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Deep Transfer Learning for Metadata Extraction from German Publications'}) RETURN a"
+    },
+    {
+        "Question": "Which articles use the 'fdo-manager' code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN a"
+    },
+    {
+        "Question": "How many articles cite the article 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'}) RETURN count(a)"
+    },
+    {
+        "Question": "What is the URL of the code 'FAIRDS-SDs'?",
+        "Cypher": "MATCH (c:Code {name: 'FAIRDS-SDs'}) RETURN c.url"
+    },
+    {
+        "Question": "List all articles that cite 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'.",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'}) RETURN a"
+    },
+    {
+        "Question": "How many datasets does the article 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information' use?",
+        "Cypher": "MATCH (a:Article {name: 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'})-[:uses]->(d:Dataset) RETURN count(d)"
+    },
+    {
+        "Question": "Which articles provide the dataset 'Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN a"
+    },
+    {
+        "Question": "What articles provide both 'Fake News Detection' dataset and 'fdo-manager' code?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}), (a)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN a"
+    },
+    {
+        "Question": "How many articles provide the software application 'Author Name Disambiguation'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Author Name Disambiguation'}) RETURN count(a)"
+    },
+    {
+        "Question": "What is the metadata URL for the dataset 'Social Media Sentiments Analysis Dataset'?",
+        "Cypher": "MATCH (d:Dataset {name: 'Social Media Sentiments Analysis Dataset'}) RETURN d.metadata_url"
+    },
+    {
+        "Question": "Which articles use the dataset 'IMDB Movie Dataset Till Dec-2023' and provide 'FDO Manager' software application?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'IMDB Movie Dataset Till Dec-2023'}), (a)-[:provides]->(s:SoftwareApplication {name: 'FDO Manager'}) RETURN a"
+    },
+    {
+        "Question": "How many articles cite 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'MexPub: Deep Transfer Learning for Metadata Extraction from German Publications'}) RETURN count(a)"
+    },
+    {
+        "Question": "What articles are associated with the code 'fdom-playground'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdom-playground'}) RETURN a"
+    },
+    {
+        "Question": "List all articles that provide 'Technology Radar' software application.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Technology Radar'}) RETURN a"
+    },
+    {
+        "Question": "How many articles provide the dataset 'LLM: Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles use the 'Fake News Detection' dataset?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}) RETURN a"
+    },
+    {
+        "Question": "What articles provide the code 'fc-service'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fc-service'}) RETURN a"
+    },
+    {
+        "Question": "How many articles are associated with the software application 'FDO Playground'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Playground'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles cite the dataset 'LLM: Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'})<-[:cites]-(b:Article) RETURN b"
+    },
+    {
+        "Question": "What is the name of the article that provides 'FDO Manager' software application?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Manager'}) RETURN a.name"
+    },
+    {
+        "Question": "Find articles that provide 'fdo-manager' and cite 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}), (a)-[:cites]->(b:Article {name: 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'}) RETURN a"
+    },
+    {
+        "Question": "How many articles provide the software application 'FDO Playground' and use the dataset 'Fake News Detection'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Playground'}), (a)-[:uses]->(d:Dataset {name: 'Fake News Detection'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles cite 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'An End-to-End Approach for Extracting and Segmenting High-Variance References from PDF Documents'}) RETURN a"
+    },
+    {
+        "Question": "What is the URL of the article 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'?",
+        "Cypher": "MATCH (a:Article {name: 'EXCITE – A Toolchain to Extract, Match and Publish Open Literature References'}) RETURN a.url"
+    },
+    {
+        "Question": "How many articles mention the software application 'Technology Radar'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'Technology Radar'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles use the dataset 'PII | External Dataset'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'PII | External Dataset'}) RETURN a"
+    },
+    {
+        "Question": "How many articles are cited by the article 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(b:Article {name: 'Automatic recognition of movement patterns in the vojta-therapy using RGB-D data'}) RETURN count(b)"
+    },
+    {
+        "Question": "What is the creative work type of 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'?",
+        "Cypher": "MATCH (a:Article {name: 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'}) RETURN a.creativeWorkType"
+    },
+    {
+        "Question": "Which articles are associated with the software application 'FDO Manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Manager'}) RETURN a"
+    },
+    {
+        "Question": "List all articles that provide 'fdom-playground'.",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdom-playground'}) RETURN a"
+    },
+    {
+        "Question": "How many articles use the code 'FAIRDS-SDs'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'FAIRDS-SDs'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles cite the dataset 'Social Media Sentiments Analysis Dataset'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Social Media Sentiments Analysis Dataset'})<-[:cites]-(b:Article) RETURN b"
+    },
+    {
+        "Question": "How many articles provide the dataset 'Fake News Detection'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'Fake News Detection'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles use both 'IMDB Movie Dataset Till Dec-2023' and 'Social Media Sentiments Analysis Dataset'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d1:Dataset {name: 'IMDB Movie Dataset Till Dec-2023'}), (a)-[:uses]->(d2:Dataset {name: 'Social Media Sentiments Analysis Dataset'}) RETURN a"
+    },
+    {
+        "Question": "What articles provide the software application 'FDO Manager'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(s:SoftwareApplication {name: 'FDO Manager'}) RETURN a"
+    },
+    {
+        "Question": "How many articles are associated with the dataset 'LLM: Mistral-7B Instruct texts'?",
+        "Cypher": "MATCH (a:Article)-[:uses]->(d:Dataset {name: 'LLM: Mistral-7B Instruct texts'}) RETURN count(a)"
+    },
+    {
+        "Question": "Which articles cite 'FAIRDS-SDs' code?",
+        "Cypher": "MATCH (a:Article)-[:cites]->(c:Code {name: 'FAIRDS-SDs'}) RETURN a"
+    },
+    {
+        "Question": "What is the URL for the article 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'?",
+        "Cypher": "MATCH (a:Article {name: 'ECOL: Early Detection of COVID Lies Using Content, Prior Knowledge and Source Information'}) RETURN a.url"
+    },
+    {
+        "Question": "How many articles provide 'fdo-manager' code?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fdo-manager'}) RETURN count(a)"
+    },
+    {
+        "Question": "How many articles are associated with the code 'fc-service'?",
+        "Cypher": "MATCH (a:Article)-[:provides]->(c:Code {name: 'fc-service'}) RETURN count(a)"
+    },
+    {
+        "Question": "Find the total number of Article in the graph!",
+        "Cypher": "MATCH (n:Article) RETURN count(n)"
+    },
+    {
+        "Question": "Find the total number of Code in the graph!",
+        "Cypher": "MATCH (n:Code) RETURN count(n)"
+    },
+    {
+        "Question": "Find the total number of Dataset in the graph!",
+        "Cypher": "MATCH (n:Dataset) RETURN count(n)"
+    },
+    {
+        "Question": "Find the total number of SoftwareApplication in the graph!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN count(n)"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their id property!",
+        "Cypher": "MATCH (n:Article) RETURN n.id"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their id property!",
+        "Cypher": "MATCH (n:Article) RETURN n.id"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their id property!",
+        "Cypher": "MATCH (n:Code) RETURN n.id"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their id property!",
+        "Cypher": "MATCH (n:Code) RETURN n.id"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their id property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.id"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their id property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.id"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their id property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.id"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their id property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.id"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their name property!",
+        "Cypher": "MATCH (n:Article) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their url property!",
+        "Cypher": "MATCH (n:Article) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Article) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Article) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their name property!",
+        "Cypher": "MATCH (n:Article) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their url property!",
+        "Cypher": "MATCH (n:Article) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Article) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Article) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their name property!",
+        "Cypher": "MATCH (n:Article) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their url property!",
+        "Cypher": "MATCH (n:Article) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Article) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Article) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their name property!",
+        "Cypher": "MATCH (n:Article) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their url property!",
+        "Cypher": "MATCH (n:Article) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Article) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Article nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Article) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their name property!",
+        "Cypher": "MATCH (n:Code) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Code) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their name property!",
+        "Cypher": "MATCH (n:Code) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Code) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their name property!",
+        "Cypher": "MATCH (n:Code) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Code) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their name property!",
+        "Cypher": "MATCH (n:Code) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Code) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their name property!",
+        "Cypher": "MATCH (n:Code) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Code) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their name property!",
+        "Cypher": "MATCH (n:Code) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Code) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Code nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Code) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their name property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their url property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their name property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their url property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their name property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their url property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the Dataset nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:Dataset) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their url property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their name property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their url property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their name property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their url property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their name property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.name"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their url property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.url"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their creativeWorkType property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.creativeWorkType"
+    },
+    {
+        "Question": "Fetch the SoftwareApplication nodes and extract their metadata_url property!",
+        "Cypher": "MATCH (n:SoftwareApplication) RETURN n.metadata_url"
+    },
+    {
+        "Question": "Find 10 Article that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the id recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Article that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Code that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 Dataset that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the name recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the creativeWorkType recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find 10 SoftwareApplication that have the metadata_url recorded and return these values!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have id and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have id and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have id and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have id and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NOT NULL RETURN n.id LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have name and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Article that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have name and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Code that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have name and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten Dataset that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have name and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NOT NULL RETURN n.name LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NOT NULL RETURN n.url LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have creativeWorkType and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NOT NULL RETURN n.creativeWorkType LIMIT 10"
+    },
+    {
+        "Question": "Find ten SoftwareApplication that have metadata_url and return their records!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NOT NULL RETURN n.metadata_url LIMIT 10"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the id!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the id!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the id!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the id!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.id IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the name!",
+        "Cypher": "MATCH (n:Article) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the url!",
+        "Cypher": "MATCH (n:Article) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Article) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Article that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Article) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the name!",
+        "Cypher": "MATCH (n:Code) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the url!",
+        "Cypher": "MATCH (n:Code) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Code) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Code that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Code) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the name!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 Dataset that are missing the metadata_url!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the name!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.name IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the creativeWorkType!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.creativeWorkType IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find 8 SoftwareApplication that are missing the metadata_url!",
+        "Cypher": "MATCH (n:SoftwareApplication) WHERE n.metadata_url IS NULL RETURN n LIMIT 8"
+    },
+    {
+        "Question": "Find the total number of Article for which the id is missing!",
+        "Cypher": "MATCH (n:Article) WHERE n.id IS NULL RETURN count(n)"
+    },
+    {
+        "Question": "Find the total number of Code for which the id is missing!",
+        "Cypher": "MATCH (n:Code) WHERE n.id IS NULL RETURN count(n)"
+    },
+    {
+        "Question": "Find the total number of Dataset for which the id is missing!",
+        "Cypher": "MATCH (n:Dataset) WHERE n.id IS NULL RETURN count(n)"
+    }
+]
