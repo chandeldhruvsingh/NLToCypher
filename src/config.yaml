@@ -12,3 +12,7 @@ neo4j:
   url: "neo4j+s://46a80122.databases.neo4j.io:7687"
   username: "<user>"          # Replace with your Neo4j username
   password: "<pass>"           # Replace with your Neo4j password
+
+openai:
+  api_key: "<openai-api-key>"  # Replace this with your OpenAI API key
+  temperature: 0 
