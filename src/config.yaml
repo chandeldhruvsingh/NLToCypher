@@ -16,3 +16,7 @@ neo4j:
 openai:
   api_key: "<openai-api-key>"  # Replace this with your OpenAI API key
   temperature: 0 
+
+model:
+  path: "/Users/dhruvchandel/Thesis_Git/NLToSPARQL/models/NLToCypher_Neo4j_3b.Q4.gguf"
+  llama_cli_path: "/Users/dhruvchandel/LLaMaCPP/llama.cpp/llama-cli"
