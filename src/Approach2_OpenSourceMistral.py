@@ -1,27 +1,26 @@
 import gradio as gr
+import yaml
 from langchain_community.llms import HuggingFaceHub
 from langchain_community.graphs import Neo4jGraph
 from langchain_core.prompts.prompt import PromptTemplate
 
-# Initialize the HuggingFace model and Neo4j connection
-repo_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+# Load configurations from config.yaml
+with open("config.yaml", "r") as file:
+    config = yaml.safe_load(file)
+
+# Initialize the HuggingFace model using the configurations
 llm_new = HuggingFaceHub(
-    repo_id=repo_id,
+    repo_id=config["huggingface"]["repo_id"],
     task="text-generation",
-    huggingfacehub_api_token="<your-api-key>",  # Replace with your API key
-    model_kwargs={
-        "max_new_tokens": 100,
-        "top_k": 10,
-        "top_p": 0.95,
-        "typical_p": 0.95,
-        "temperature": 0.7,
-    },
+    huggingfacehub_api_token=config["huggingface"]["api_token"],
+    model_kwargs=config["huggingface"]["model_kwargs"],
 )
 
+# Initialize the Neo4j connection using the configurations
 graph = Neo4jGraph(
-    url="neo4j+s://46a80122.databases.neo4j.io:7687",
-    username="<user>",  # Replace with your username
-    password="<pass>",  # Replace with your password
+    url=config["neo4j"]["url"],
+    username=config["neo4j"]["username"],
+    password=config["neo4j"]["password"],
     refresh_schema=True, 
 )
 

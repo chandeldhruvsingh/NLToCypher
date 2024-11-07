@@ -1,0 +1,14 @@
+huggingface:
+  repo_id: "mistralai/Mixtral-8x7B-Instruct-v0.1"
+  api_token: "<your-api-key>"  # Replace with your Hugging Face API key
+  model_kwargs:
+    max_new_tokens: 100
+    top_k: 10
+    top_p: 0.95
+    typical_p: 0.95
+    temperature: 0.7
+
+neo4j:
+  url: "neo4j+s://46a80122.databases.neo4j.io:7687"
+  username: "<user>"          # Replace with your Neo4j username
+  password: "<pass>"           # Replace with your Neo4j password
